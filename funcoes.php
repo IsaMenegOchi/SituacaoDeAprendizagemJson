@@ -12,62 +12,22 @@
   }  
 
 
-//   function buscarFuncionario($listaFuncionario, $nome, $sobrenome, $departamento){
+  function buscarFuncionario($listaFuncionario, $caracteristicaFuncionario){
 
-//     $funcionariosPesquisados = [];
+    $funcionariosPesquisados = [];
 
-//     foreach($listaFuncionario as $funcionario){
-//         if($funcionario->first_name == $nome){
-//             $funcionariosPesquisados[] = $funcionario;
-//             print_r("departamento");
-//         }
-        
-//         else if($funcionario->last_name == $sobrenome){
-//             $funcionariosPesquisados[] = $funcionario;
-//             print_r("departamento");
-//         }
-//         else if($funcionario->department == $departamento){
-//             $funcionariosPesquisados[] = $funcionario;
-//             print_r("departamento");
-//         }
-//         else{
-//             echo "Inexistente no sistema";
-//         }
-//     }
-
-//   }
-
-function buscarNomeFuncionario($listaFuncionario, $nome){
-
-    $funcionariosPesquisados=[];
-
-    foreach($listaFuncionario as $funcionarios)
-    if($funcionarios->first_name == $nome){
-        $funcionariosPesquisados[] = $funcionarios;
-        print_r("Nome");
+    foreach($listaFuncionario as $funcionario){
+      if($funcionario->first_name == $caracteristicaFuncionario){
+          $funcionariosPesquisados[] = $funcionario;
+      }
+      else if($funcionario->last_name == $caracteristicaFuncionario){
+          $funcionariosPesquisados[] = $funcionario;
+      }
+      else if($funcionario->department == $caracteristicaFuncionario){
+        $funcionariosPesquisados[] = $funcionario;
+      }
     }
-}
-
-function buscarSobrenomeFuncionario($listaFuncionario, $sobrenome){
-
-    $funcionariosPesquisados=[];
-
-    foreach($listaFuncionario as $funcionarios)
-    if($funcionarios->last_name == $sobrenome){
-        $funcionariosPesquisados[] = $funcionarios;
-        print_r("Nome");
-    }
-}
-
-function buscarDepartamentoFuncionario($listaFuncionario, $departamento){
-
-    $funcionariosPesquisados=[];
-
-    foreach($listaFuncionario as $funcionarios)
-    if($funcionarios->department == $departamento){
-        $funcionariosPesquisados[] = $funcionarios;
-        print_r("Nome");
-    }
-}
+    return $funcionariosPesquisados;
+  }
 
 ?>
