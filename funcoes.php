@@ -30,4 +30,25 @@
     return $funcionariosPesquisados;
   }
 
+
+
+
+
+  function cadastrarFuncionario($idFuncionario, $nomeFuncionario, $sobrenomeFuncionario, $emailFuncionario, 
+  $generoFuncionario, $enderecoIpFuncionario, $paisFuncionario, $departamentoFuncionario){
+
+    $cadastrandoFuncionario = array(
+      "id"=> $idFuncionario,
+      "first_name" => $nomeFuncionario, 
+      "last_name" => $sobrenomeFuncionario, 
+      "email" => $emailFuncionario, 
+      "gender" => $generoFuncionario,
+      "ip_address" =>$enderecoIpFuncionario, 
+      "country" => $paisFuncionario, 
+      "department" => $departamentoFuncionario
+    );
+    
+    $json_str = json_encode($cadastrandoFuncionario);
+  }
+
 ?>
