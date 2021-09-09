@@ -47,12 +47,6 @@ form{
     border-radius: 5px;
 }
 
-.cadastrar{
-    display: none;
-    position: absolute;
-    
-}
-
 
 table
 {
@@ -105,29 +99,31 @@ table td, th
     text-align: center;
 }
 
-
-
 .container-form-cadastro{
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     display: none;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
     position: absolute;
     background-color: #FFFFFF99;
+    
 }
 
 .container-form-cadastro form{
-    padding: 20px;
-    background-color: #08090b;
+    height: 100%;
+    padding-top: 75px;
+    padding-bottom: 75px;
+    margin-top: 54vh;
+    background-color: #7c0e97ef;
     border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 div{
-    display: flex;
-    align-items: center;
-    justify-content: center;
     gap: 10px;
 }
 

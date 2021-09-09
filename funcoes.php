@@ -1,5 +1,6 @@
 <?php
 
+
   function lerArquivo($nomeArquivo){
     //criamos uma variavel que possui a função de pegar 
     //o conteudo do arquivo e nome do arquivo colocado como paremetro
@@ -34,10 +35,11 @@
 
 
 
+
   function cadastrarFuncionario($idFuncionario, $nomeFuncionario, $sobrenomeFuncionario, $emailFuncionario, 
   $generoFuncionario, $enderecoIpFuncionario, $paisFuncionario, $departamentoFuncionario){
 
-    $cadastrandoFuncionario = array(
+    $cadastrandoFuncionario = [
       "id"=> $idFuncionario,
       "first_name" => $nomeFuncionario, 
       "last_name" => $sobrenomeFuncionario, 
@@ -46,9 +48,22 @@
       "ip_address" =>$enderecoIpFuncionario, 
       "country" => $paisFuncionario, 
       "department" => $departamentoFuncionario
-    );
-    
-    $json_str = json_encode($cadastrandoFuncionario);
+    ];
+
+    return $cadastrandoFuncionario;
   }
 
+  function escrevendoJson ($formularioCadastro){
+    $arquivo = 'empresaX.json';
+    $json_str = json_encode($formularioCadastro);
+    $fp = fopen($arquivo, "a");
+ 
+    // Escreve o conteúdo JSON no arquivo
+    fwrite($fp, $json_str);
+    // Fecha o arquivo
+    fclose($fp);
+  }
+
+
+  
 ?>

@@ -6,8 +6,28 @@ require("funcoes.php");
     if(isset($_GET["buscarFuncionario"])){
         $funcionarios = buscarFuncionario($funcionarios, $_GET["buscarFuncionario"]);
     }
-    else if(isset($_GET["cadastrarFuncionario"])){
-        $funcionarios = cadastrarFuncionario();
+    else if(isset($_POST["cadastrarFuncionario"])){
+        $idFunc = $_POST["idFuncionario"];
+        $nomeFunc = $_POST["nomeFuncionario"];
+        $sobrenomeFunc = $_POST["sobrenomeFuncionario"];
+        $emailFunc = $_POST["emailFuncionario"];
+        $enderecoIpFunc = $_POST["enderedoIpFuncionario"];
+        $generoFunc = $_POST["generoFuncionario"];
+        $paisFunc= $_POST["paisFuncionario"];
+        $departFunc= $_POST["departamentoFuncionario"];
+
+        $funcionarios = cadastrarFuncionario(
+            $idFunc,
+            $nomeFunc,
+            $sobrenomeFunc,
+            $emailFunc,
+            $generoFunc,
+            $enderecoIpFunc,
+            $paisFunc,
+            $departFunc,
+        );
+
+        escrevendoJson($funcionarios);
     }
 
 ?>
@@ -33,8 +53,7 @@ require("funcoes.php");
                 <input type="text" value="<?=isset($_GET["buscarFuncionario"])? $_GET["buscarFuncionario"] : ""?>" name="buscarFuncionario" id="buscarFuncionario" placeholder="Digite o nome">
                 <button><i class="material-icons">search</i></button>
         </form>
-        <button onclick="showCadastro()" class="cadastrar">Cadastrar</button>
-        
+            <button onclick="showCadastro()" class="cadastrar" value="<?=isset($_POST["cadastrarFuncionario"])? $_POST["cadastrarFuncionario"] : ""?>">Cadastrar</button>
         <table>
             <tr>
                 <th>ID</th>
@@ -65,7 +84,7 @@ require("funcoes.php");
         </table>
     </section>
     <div class="container-form-cadastro">
-        <form method="GET">
+        <form method="POST">
             <input type="number" name="idFuncionario" placeholder="digite o id">
             <input type="text" name="nomeFuncionario" placeholder="digite o nome">
             <input type="text" name="sobrenomeFuncionario" placeholder="digite o sobrenome">
