@@ -10,6 +10,7 @@
     $jsonArray = json_decode($arquivo);
     //retornamos a variavel que possui o array
     return $jsonArray;
+    
   }  
 
 
@@ -29,39 +30,6 @@
       }
     }
     return $funcionariosPesquisados;
-  }
-
-
-
-
-
-
-  function cadastrarFuncionario($idFuncionario, $nomeFuncionario, $sobrenomeFuncionario, $emailFuncionario, 
-  $generoFuncionario, $enderecoIpFuncionario, $paisFuncionario, $departamentoFuncionario){
-
-    $cadastrandoFuncionario = [
-      "id"=> $idFuncionario,
-      "first_name" => $nomeFuncionario, 
-      "last_name" => $sobrenomeFuncionario, 
-      "email" => $emailFuncionario, 
-      "gender" => $generoFuncionario,
-      "ip_address" =>$enderecoIpFuncionario, 
-      "country" => $paisFuncionario, 
-      "department" => $departamentoFuncionario
-    ];
-
-    return $cadastrandoFuncionario;
-  }
-
-  function escrevendoJson ($formularioCadastro){
-    $arquivo = 'empresaX.json';
-    $json_str = json_encode($formularioCadastro);
-    $fp = fopen($arquivo, "a");
- 
-    // Escreve o conteúdo JSON no arquivo
-    fwrite($fp, $json_str);
-    // Fecha o arquivo
-    fclose($fp);
   }
 
 
